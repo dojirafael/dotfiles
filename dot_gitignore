@@ -1,0 +1,17 @@
+.remote-sync.json
+.vimsession
+projectSettingsUpdater.xml
+riderMarkupCache.xml
+*.nrproj
+*.crproj
+*/**/bin
+*/**/obj
+.DS_Store
+.keep
+*.swp
+.bundle
+vendor/bundle
+misc.xml
+dataSources.xml
+.phpdoc
+
