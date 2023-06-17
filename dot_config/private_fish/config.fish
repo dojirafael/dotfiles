@@ -4,10 +4,6 @@ fish_add_path /opt/homebrew/bin
 #fish_add_path $HOME/Projects/yabai/bin
 #fish_add_path $HOME/Projects/skhd/bin
 
-if type -q starship
-	eval (starship init fish)
-end
-
 set fish_greeting
 
 fish_vi_key_bindings
@@ -38,3 +34,4 @@ function ssh
     command ssh $argv
   end
 end
+starship init fish | source
