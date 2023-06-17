@@ -9,7 +9,7 @@ fish_vi_key_bindings
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-export XDG_CONFIG_HOME="/Users/roliveira/.config/"
+export XDG_CONFIG_HOME="$HOME/.config/"
 
 export TERM=screen-256color
 
