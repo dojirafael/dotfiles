@@ -1,8 +1,6 @@
 fish_add_path $HOME/scripts
 fish_add_path /usr/local/sbin
 fish_add_path /opt/homebrew/bin
-#fish_add_path $HOME/Projects/yabai/bin
-#fish_add_path $HOME/Projects/skhd/bin
 
 set fish_greeting
 
