@@ -1,3 +1,0 @@
-#!/usr/local/bin/fish
-
-pssh -i -H (doctl compute droplet list --format Name --no-header --tag-name db | tr '\n' ' ') "df -h /"
