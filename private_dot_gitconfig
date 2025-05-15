@@ -9,7 +9,7 @@
 [user]
 	email = rafitas81@gmail.com
 	name = Rafael Oliveira
-#	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBA0E365B6pMO2s9sX41o5CNVL8xx3pyt0Ioqb3OfsTu
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFHo6twyEhXPtrX5lR9U7giQwv1h5e40n50a2xyHLTzX
 [merge]
 	tool = kdiff3
 	conflictstyle = diff3
@@ -86,6 +86,7 @@
 [gpg]
     format = ssh
 [gpg "ssh"]
-    program = bw ssh-sign
+#    program = bw ssh-sign
+#    defaultKeyCommand = bw ssh-list
 [commit]
 	gpgsign = true
