@@ -1,0 +1,9 @@
+#! /bin/bash
+
+crowdin-sync-web
+
+read  -n 1 -p "wait for merge"
+
+crowdin-sync-client
+
+

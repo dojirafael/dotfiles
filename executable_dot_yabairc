@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 
 # global settings
-yabai -m config mouse_follows_focus          off
+yabai -m config mouse_follows_focus          on
 yabai -m config window_placement             second_child
 yabai -m config window_topmost               off
-yabai -m config window_opacity               off
+yabai -m config window_opacity               on
 yabai -m config window_border                off
 yabai -m config window_shadow                on
 yabai -m config active_window_border_color   0xff008bff
@@ -23,38 +23,6 @@ yabai -m config left_padding                 8
 yabai -m config right_padding                8
 yabai -m config window_gap                   8
 yabai -m config external_bar main:0:0
-# load scripting additions
-sudo yabai --load-sa
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-
-#
-# setup spaces
-#
-for _ in $(yabai -m query --spaces | jq '.[].index | select(. > 6)'); do
-  yabai -m space --destroy 7
-done
-
-function setup_space {
-  local idx="$1"
-  local name="$2"
-  local space=
-  echo "setup space $idx : $name"
-
-  space=$(yabai -m query --spaces --space "$idx")
-  if [ -z "$space" ]; then
-    yabai -m space --create
-  fi
-
-  yabai -m space "$idx" --label "$name"
-}
-
-setup_space 1 emacs
-setup_space 2 code
-setup_space 3 web
-setup_space 4 social
-setup_space 5 media
-setup_space 6 other
-
 
 # space 1: terminals
 yabai -m rule --add app="iTerm2" space=^1
@@ -65,23 +33,14 @@ yabai -m rule --add app="JetBrains Rider.*" space=^2
 yabai -m rule --add app="JetBrains Rider.*" title="Preferences" space=^2 manage=off
 yabai -m rule --add app="PhpStorm.*" space=^2
 yabai -m rule --add app="PhpStorm.*" title="Preferences" space=^2 manage=off
-yabai -m rule --add app="Fleet" space=^2
-yabai -m rule --add app="Fleet" title="Preferences" space=^2 manage=off
-yabai -m rule --add app="Goland" space=^2
-yabai -m rule --add app="Goland" title="Preferences" space=^2 manage=off
-yabai -m rule --add app="PyCharm" space=^2
-yabai -m rule --add app="PyCharm" title="Preferences" space=^2 manage=off
-
-
-
 
 # space 3: web
 yabai -m rule --add app="Safari" space=^3
-yabai -m rule --add app="Google Chrome" space=^3
 
 # space 4: VMs
 yabai -m space 4 --layout stack
-yabai -m space 4 --padding abs:8:8:8:8
+yabai -m rule --add app="Jump Desktop" space=^4
+yabai -m rule --add app="Jump Desktop" title="Jump Desktop" space=^4 manage=off
 yabai -m rule --add app="Parallels Desktop" title="Control Center" space=^4 manage=off
 yabai -m rule --add app="Parallels Desktop" space=^4
 
@@ -89,11 +48,7 @@ yabai -m rule --add app="Parallels Desktop" space=^4
 yabai -m space 5 --layout stack
 yabai -m rule --add app="Superhuman" space=^5
 yabai -m rule --add app="DataGrip" space=^5
-yabai -m rule --add app="Adobe Photoshop" space=^5
 yabai -m rule --add app="Pixelmator*" space=^5
-yabai -m rule --add app="Pixelmator*" space=^5
-yabai -m rule --add app="Slack" space=^5
-
 
 # display 2: off-stream and out of the way
 yabai -m rule --add app="Discord" space=^4
@@ -104,8 +59,10 @@ yabai -m rule --add app="Podcasts" space=^4
 
 # things which create floating children
 yabai -m rule --add title="JetBrains Toolbox" manage=off mouse_follows_focus=off
-yabai -m rule --add app="System Preferences" manage=off
+yabai -m rule --add app="System Settings" manage=off
 yabai -m rule --add app="Stats" manage=off mouse_follows_focus=off
+yabai -m rule --add app="iStat Menus" manage=off mouse_follows_focus=off
+yabai -m rule --add app="Things" grid=10:3:1:1:1:8 mouse_follows_focus=on sticky=on
 yabai -m rule --add app="choose" manage=off mouse_follows_focus=off
 yabai -m rule --add app="CleanShot X" manage=off mouse_follows_focus=off
 

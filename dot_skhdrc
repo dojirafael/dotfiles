@@ -1,9 +1,3 @@
-
-.blacklist [
-    "parsec"
-    "jump desktop"
-]
-
 # general window management
 alt - e : yabai -m window --toggle split
 alt - r : yabai -m space --rotate 90
@@ -43,14 +37,16 @@ meh - tab : yabai -m space --focus recent
 
 meh - w : yabai -m space --focus 3;                      # yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  == "Safari") | .id');
 meh - r : yabai -m space --focus 2;                      # yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  | contains("Rider")) | .id');
+# open most recent downloaded file in rider
+cmd + alt - r : rider (ls -tp ~/Downloads/*.log | grep -v /\$ | head -1)
 # open spotlight from an iOS remote session
-meh - t : skhd -k "cmd - space"
 
-# meh - u : ~/go/bin/obs-cli scene switch "main"
-# meh - i : ~/go/bin/obs-cli scene switch "brb"
-# meh - o : ~/go/bin/obs-cli scene switch "shit hit fan"
+# meh - u : yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  == "OBS Studio") | .id'); skhd -k "meh-u";
+# meh - i : yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  == "OBS Studio") | .id'); skhd -k "meh-i";
+# meh - o : yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  == "OBS Studio") | .id'); skhd -k "meh-o";
+
 # kill stream with meh-'
-# meh - 0x27 : ~/go/bin/obs-cli stream stop; pkill obs
+meh - 0x27 : pkill OBS
 
 meh - backspace : pkill OBS; pmset displaysleepnow
 
@@ -58,14 +54,12 @@ meh - a : yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.
 meh - s : yabai -m space --focus 1;                     # yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  == "iTerm2") | .id');
 meh - d : yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  == "Discord") | .id');
 # open common folders
-meh - f : cd ~; open (printf "Downloads\nProjects/osu\nProjects/osu-resources\nGames/osu-development\nGames/osu-development/client.realm\n" | choose -um)
 meh - g : ~/scripts/github-safari-action
 meh - h : yabai -m window --focus west || yabai -m window --focus stack.prev || yabai -m window --focus stack.last
 meh - j : yabai -m window --focus south
 meh - k : yabai -m window --focus north
 meh - l : yabai -m window --focus east || yabai -m window --focus stack.next || yabai -m window --focus stack.first
 
-meh - v : yabai -m space --focus 4;
 meh - m : yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  == "Music") | .id');
 meh - e : yabai -m space --focus 5; yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  == "Superhuman") | .id');
 

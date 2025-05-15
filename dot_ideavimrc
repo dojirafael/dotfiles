@@ -6,6 +6,7 @@ set surround
 set ideajoin
 set multiple-cursors
 set highlightedyank
+set quickscope
 
 " set clipboard+=unnamed
 
@@ -39,7 +40,7 @@ map <Leader>S   <Action>(ShowSolutionPropertiesAction)
 map <Leader>d   <Action>(ChooseDebugConfiguration)
 map <Leader>F   <Action>(FindInPath)
 map <Leader>G   <Action>(Github.Open.In.Browser)
-map <Leader>'   <Action>(Rerun)
+map <C-'>       <Action>(Run)
 
 map <Leader>b   <Action>(ToggleLineBreakpoint)
 map <Leader>B   <Action>(ViewBreakpoints)
@@ -68,7 +69,6 @@ nmap <S-Space> <C-U>
 # nmap <Enter> <Action>(RiderDebuggerApplyEncChagnes)
 
 map <Leader>wt <Action>(ActivateUnitTestsToolWindow)
-map <Leader>wT <Action>(ActivateTODOToolWindow)
 map <Leader>wd <Action>(ActivateDebugToolWindow)
 map <Leader>ws <Action>(ActivateProjectToolWindow)
 map <Leader>we <Action>(Rider.ProblemsView.ErrorsInSolution)
@@ -79,6 +79,7 @@ map <Leader>wp <Action>(ActivatedotTraceProfilerToolWindow)
 map <Leader>wc <Action>(ShowSolutionPropertiesAction)
 map <Leader>wn <Action>(ActivateNuGetToolWindow)
 map <Leader>ww <Action>(HideAllWindows)
+map <Leader>wb <Action>(ViewStatusBar)
 
 " extract actions
 map <Leader>xi <Action>(ExtractInterface)
@@ -94,6 +95,7 @@ map <Leader>cc <Action>(IntroduceConstant)
 
 nmap gr <Action>(GotoSuperMethod)
 nmap gb <Action>(GotoSuperMethod)
+nmap gu <Action>(ShowUsages)
 
 " comment a line, similar to tpope/vim-commentary
 nmap gcc <Action>(CommentByLineComment)
@@ -111,6 +113,7 @@ nmap <C-o> <Action>(Back)
 nmap <C-i> <Action>(Forward)
 
 map gt   <Action>(SearchEverywhere)
+map gd   <Action>(GotoDeclaration)
 
 " https://youtrack.jetbrains.com/issue/VIM-2178/multiple-cursors-defines-incorrect-keys
 " Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
@@ -118,8 +121,8 @@ nmap <C-n> <Plug>NextWholeOccurrence
 xmap <C-n> <Plug>NextWholeOccurrence
 nmap g<C-n> <Plug>NextOccurrence
 xmap g<C-n> <Plug>NextOccurrence
-nmap <C-x> <Plug>SkipOccurrence
-xmap <C-x> <Plug>SkipOccurrence
+" nmap <C-x> <Plug>SkipOccurrence
+" xmap <C-x> <Plug>SkipOccurrence
 nmap <C-p> <Plug>RemoveOccurrence
 xmap <C-p> <Plug>RemoveOccurrence
 

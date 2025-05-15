@@ -1,0 +1,32 @@
+ {
+  "excludedUrls": "monkeytype.com, docs.google.com, github.com/notifications",
+  "linkHintCharacters": "asdfjklweio",
+  "detectByCursorStyle": false,
+  "scrollSize": 250,
+  "openTabUrl": "https://google.com",
+  "modifier": "",
+  "smoothScroll": true,
+  "scrollDuration": 25,
+  "transparentBindings": true,
+  "bindings": {
+      "hintToggle": [ ";", "f" ],
+      "newTabHintToggle": [ "shift+;", "shift+f" ],
+      "scrollUp": [ "k"],
+      "scrollDown": [ "j" ],
+      "scrollLeft": "",
+      "scrollRight": "",
+      "scrollUpHalfPage": [ "ctrl+u", "pageup" ],
+      "scrollDownHalfPage": [ "ctrl+d", "pagedown", "space" ],
+      "goToPageTop": [ "g g", "meta+up" ],
+      "goToPageBottom": [ "shift+g", "meta+down" ],
+      "goToFirstInput": "g i",
+      "goBack": "ctrl+o",
+      "goForward": "ctrl+i",
+      "reload": "r",
+      "tabForward": [ "ctrl+l"],
+      "tabBack": [ "ctrl+h" ],
+      "closeTab": "x",
+      "openTab": "t",
+      "duplicateTab": "y t"
+  }
+}
